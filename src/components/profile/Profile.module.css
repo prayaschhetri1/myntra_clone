@@ -1,0 +1,52 @@
+.container{
+    max-width:100%;
+    background: #feeef3;
+    padding-top: 29px;
+       
+}
+
+.main{
+    width: 440px;
+    margin:auto;
+    display: flex;
+    flex-direction: column;
+    background: white;
+
+}
+.discount{
+    width: 100%;
+    background: cover;
+}
+
+.login_signup{
+    font-size: 30px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+.login_div{
+    padding: 40px 40px 40px 30px;
+}
+
+.login_div{
+ display: grid;
+ grid-gap: 20px;
+ justify-content: center;
+}
+
+
+.inputbox{
+    display:flex;
+    flex-direction: column;
+    gap: 20px;
+   justify-content: center;
+   align-items: center;
+}
+
+
+.inputbox >TextField {
+    width: 100%;
+    font-size: 20px;
+    padding:4px 5px 4px 12px;
+}
