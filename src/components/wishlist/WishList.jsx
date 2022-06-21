@@ -5,6 +5,7 @@ import { useContext } from 'react'
 import { Navigate } from 'react-router-dom'
 import { ProductContext } from '../../ProductContext/products'
 import Home from '../home/Home'
+import SingleItem from './SingleSearch'
 import styles from './WishList.module.css'
 const WishList = () => {
   const {data,searched,entered,AddData} = useContext(ProductContext)
@@ -31,7 +32,7 @@ const handleMinusList = (id) => {
   return (
     <div className={styles.products_list}>
     {filteredData.filter((item) => {
-      console.log(searched)
+
         if (searched === "") {
           return item;
         } else if (
@@ -44,57 +45,7 @@ const handleMinusList = (id) => {
 
 
      .map((item) => {
-          return (
-            <Card sx={{ maxWidth: 599 }}>
-            <CardMedia
-              component="img"
-              height="230"
-              image={item.image}
-              alt="green iguana"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {item.title}
-              </Typography>
-              <Typography variant="h6" color="text.primary">
-                {item.category}
-              </Typography>
-              <Typography variant="body1" color="text.secondary">
-                {item.price}
-              </Typography>
-              <Typography variant="body1" color="error">
-                {item.rating}
-              </Typography>
-            </CardContent>
-            <CardActions>
-              {count === 0 ? (
-                <Button
-                  onClick={() => handleWishlist(item)}
-                  variant="contained"
-                  size="large"
-                  color="error"
-                >
-                  ADD TO BAG
-                </Button>
-              ) : (
-                <div className={styles.countbtn}>
-                  <Button
-                    onClick={() => handleWishlist(item)}
-                    variant="contained"
-                    size="300px"
-                    color="success"
-                  >
-                    +
-                  </Button>
-                  <span>{count}</span>
-                  <Button variant="contained" size="300px" color="success" onClick={()=>handleMinusList(item.id)}>
-                    -
-                  </Button>
-                </div>
-              )}
-            </CardActions>
-          </Card>
-          )
+          return <SingleItem item={item} key={item.id} />
       })
     }
   </div>
